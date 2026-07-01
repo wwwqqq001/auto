@@ -1,6 +1,14 @@
 name: ci
 
 on:
+  workflow_dispatch:
+    inputs:
+      job_id:
+        description: Job ID
+      run_id:
+        description: Run ID
+      callback_url:
+        description: Callback URL
   push:
     branches:
       - main
@@ -13,7 +21,6 @@ jobs:
     steps:
       - name: Clone repository
         uses: actions/checkout@v3
-
       - name: Auto green
         run: |
           git config --local user.email "wwwqqq001@outlook.com"
